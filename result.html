@@ -1,1 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>
+Analysis | ResumeSense
+</title>
+
+<link rel="stylesheet"
+      href="{{ url_for('static',
+      filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+<header class="nav">
+
+<a class="brand" href="/">
+Resume<span>Sense</span>
+</a>
+
+<nav>
+
+<a href="/">
+New Analysis
+</a>
+
+<a href="/dashboard">
+Jobs
+</a>
+
+</nav>
+
+</header>
+
+
+<main class="results-page">
+
+
+<div class="page-title">
+
+<span class="eyebrow">
+ANALYSIS COMPLETE
+</span>
+
+<h1>
+Your Resume Report
+</h1>
+
+<p>
+{{ filename }}
+</p>
+
+</div>
+
+
+<section class="score-grid">
+
+
+<div class="score-card main-score">
+
+<span>
+OVERALL RESUME SCORE
+</span>
+
+<strong>
+{{ resume_score }}%
+</strong>
+
+<div class="progress">
+
+<i style="
+width: {{ resume_score }}%;
+"></i>
+
+</div>
+
+<small>
+Based on match, ATS, skills and completeness
+</small>
+
+</div>
+
+
+<div class="score-card">
+
+<span>
+JOB MATCH
+</span>
+
+<strong>
+{{ match_score }}%
+</strong>
+
+<small>
+Semantic similarity
+</small>
+
+</div>
+
+
+<div class="score-card">
+
+<span>
+ATS SCORE
+</span>
+
+<strong>
+{{ ats_score }}%
+</strong>
+
+<small>
+Structure & readability
+</small>
+
+</div>
+
+
+</section>
+
+
+<section class="two-col">
+
+
+<div class="panel">
+
+<div class="panel-head">
+
+<h2>
+Skills Found
+</h2>
+
+<span>
+{{ resume_skills|length }}
+</span>
+
+</div>
+
+
+<div class="chips">
+
+{% for skill in resume_skills %}
+
+<span class="chip good">
+✓ {{ skill }}
+</span>
+
+{% else %}
+
+<p>
+No supported skills detected.
+</p>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+
+
+<div class="panel">
+
+<div class="panel-head">
+
+<h2>
+Skill Gaps
+</h2>
+
+<span>
+{{ gaps|length }}
+</span>
+
+</div>
+
+
+<div class="chips">
+
+{% for skill in gaps %}
+
+<span class="chip missing">
++ {{ skill }}
+</span>
+
+{% else %}
+
+<span class="chip good">
+Great! No detected skill gaps.
+</span>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="panel">
+
+<div class="panel-head">
+
+<h2>
+Recommended Jobs
+</h2>
+
+<a href="/dashboard">
+View all →
+</a>
+
+</div>
+
+
+<div class="job-list">
+
+{% for job in recommendations %}
+
+<article class="job">
+
+<div class="job-icon">
+{{ job.title[0] }}
+</div>
+
+
+<div class="job-info">
+
+<h3>
+{{ job.title }}
+</h3>
+
+<p>
+{{ job.company }}
+•
+{{ job.location }}
+</p>
+
+</div>
+
+
+<div class="job-match">
+
+<strong>
+{{ job.match }}%
+</strong>
+
+<small>
+match
+</small>
+
+</div>
+
+</article>
+
+{% endfor %}
+
+</div>
+
+</section>
+
+
+
+<section class="panel">
+
+<div class="panel-head">
+
+<h2>
+Resume Preview
+</h2>
+
+</div>
+
+
+<pre class="resume-preview">
+{{ resume_preview }}
+</pre>
+
+</section>
+
+
+</main>
+
+
+<footer>
+ResumeSense • Smart recruitment insights
+</footer>
+
+
+</body>
+</html>
