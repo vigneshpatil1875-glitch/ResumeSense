@@ -1,2 +1,0 @@
-# ResumeSense
-ResumeSense

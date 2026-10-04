@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ResumeSense</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>ResumeSense</h1>
+
+    <h2>AI Resume Screening System</h2>
+
+    <p>
+        Upload your resume and compare it with a job description.
+    </p>
+
+    <form action="/analyze"
+          method="POST"
+          enctype="multipart/form-data">
+
+        <label>Upload Resume (PDF)</label>
+
+        <input type="file"
+               name="resume"
+               accept=".pdf"
+               required>
+
+        <label>Job Description</label>
+
+        <textarea name="job_description"
+                  rows="10"
+                  placeholder="Enter job description..."
+                  required></textarea>
+
+        <button type="submit">
+            Analyze Resume
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>
