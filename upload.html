@@ -1,1 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Upload Resume | ResumeSense</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        Resume<span>Sense</span>
+    </div>
+
+    <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+    </nav>
+
+</header>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="upload-page">
+
+    <section class="upload-container">
+
+        <div class="upload-header">
+
+            <div class="upload-icon">
+                📄
+            </div>
+
+            <h1>Upload Your Resume</h1>
+
+            <p>
+                Upload your resume and let ResumeSense
+                analyze your skills, ATS compatibility
+                and job matches.
+            </p>
+
+        </div>
+
+
+        <!-- ================= UPLOAD FORM ================= -->
+
+        <form id="uploadForm"
+              action="{{ url_for('analyze') }}"
+              method="POST"
+              enctype
