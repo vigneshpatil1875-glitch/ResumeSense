@@ -1,1 +1,420 @@
+:root {
+    --bg: #07111f;
+    --panel: #0e1b2d;
+    --panel-light: #12243b;
 
+    --text: #f5f8ff;
+    --muted: #9db0c8;
+
+    --primary: #63e6be;
+    --secondary: #72a7ff;
+
+    --danger: #ff8d9a;
+
+    --border: rgba(255, 255, 255, 0.10);
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        Arial,
+        sans-serif;
+
+    color: var(--text);
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(114, 167, 255, 0.18),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(99, 230, 190, 0.12),
+            transparent 25%
+        ),
+
+        var(--bg);
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.nav {
+    height: 76px;
+
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    border-bottom:
+        1px solid var(--border);
+
+    background:
+        rgba(7, 17, 31, 0.78);
+
+    backdrop-filter: blur(18px);
+}
+
+
+.brand {
+    font-size: 25px;
+
+    font-weight: 900;
+
+    letter-spacing: -1px;
+}
+
+
+.brand span {
+    color: var(--primary);
+}
+
+
+nav {
+    display: flex;
+
+    gap: 30px;
+
+    color: var(--muted);
+
+    font-weight: 600;
+}
+
+
+nav a {
+    transition: 0.25s ease;
+}
+
+
+nav a:hover {
+    color: white;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+    width: 100%;
+
+    max-width: 1180px;
+
+    margin: auto;
+
+    padding:
+        70px 24px;
+}
+
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+    min-height: 620px;
+
+    display: grid;
+
+    grid-template-columns:
+        1.05fr 0.95fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+
+.hero-copy {
+    animation:
+        fadeUp 0.7s ease;
+}
+
+
+.badge,
+.eyebrow {
+
+    display: inline-block;
+
+    color: var(--primary);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+.hero h1 {
+
+    margin:
+        18px 0;
+
+    font-size:
+        clamp(44px, 6vw, 76px);
+
+    line-height: 1.02;
+
+    letter-spacing: -4px;
+}
+
+
+.hero h1 span {
+    color: var(--primary);
+}
+
+
+.hero-copy p {
+
+    max-width: 650px;
+
+    color: var(--muted);
+
+    font-size: 19px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   HERO STATS
+========================= */
+
+.hero-stats {
+
+    display: flex;
+
+    gap: 45px;
+
+    margin-top: 42px;
+}
+
+
+.hero-stats strong {
+
+    display: block;
+
+    font-size: 27px;
+}
+
+
+.hero-stats small {
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   GLASS CARD
+========================= */
+
+.glass-card,
+.panel,
+.score-card,
+.job-card {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(18, 36, 59, 0.96),
+            rgba(10, 24, 41, 0.96)
+        );
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 25px 80px
+        rgba(0, 0, 0, 0.25);
+}
+
+
+.glass-card {
+
+    padding: 30px;
+
+    animation:
+        fadeUp 0.9s ease;
+}
+
+
+.card-title {
+
+    margin-bottom: 24px;
+
+    font-size: 24px;
+
+    font-weight: 800;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+label {
+
+    color: #dce7f6;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+/* =========================
+   UPLOAD BOX
+========================= */
+
+.upload-box {
+
+    padding: 30px;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    border:
+        1px dashed
+        rgba(99, 230, 190, 0.45);
+
+    border-radius: 18px;
+
+    background:
+        rgba(99, 230, 190, 0.035);
+
+    transition: 0.3s ease;
+}
+
+
+.upload-box:hover {
+
+    transform: translateY(-3px);
+
+    border-color:
+        var(--primary);
+
+    background:
+        rgba(99, 230, 190, 0.08);
+}
+
+
+.upload-box input {
+    display: none;
+}
+
+
+.upload-icon {
+
+    margin-bottom: 8px;
+
+    color: var(--primary);
+
+    font-size: 32px;
+}
+
+
+.upload-box strong {
+
+    display: block;
+
+    font-size: 16px;
+}
+
+
+.upload-box span {
+
+    display: block;
+
+    margin-top: 7px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   TEXTAREA
+========================= */
+
+textarea {
+
+    width: 100%;
+
+    padding: 15px;
+
+    resize: vertical;
+
+    outline: none;
+
+    color: white;
+
+    background:
+        #091525;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 15px;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    transition: 0.25s ease;
+}
+
+
+textarea::placeholder {
+    color: #64758
