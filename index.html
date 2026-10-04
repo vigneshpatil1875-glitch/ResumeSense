@@ -1,1 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ResumeSense | AI Resume Screening</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',
+          filename='style.css') }}">
+
+</head>
+
+<body>
+
+<header class="nav">
+
+    <a class="brand" href="/">
+        Resume<span>Sense</span>
+    </a>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/dashboard">Jobs</a>
+    </nav>
+
+</header>
+
+
+<main>
+
+<section class="hero">
+
+<div class="hero-copy">
+
+    <div class="badge">
+        ✦ AI-POWERED RECRUITMENT
+    </div>
+
+    <h1>
+        Turn your resume into your
+        <span>career advantage.</span>
+    </h1>
+
+    <p>
+        Analyze ATS compatibility, discover
+        skill gaps, calculate job match scores
+        and get personalized job recommendations
+        in seconds.
+    </p>
+
+
+    <div class="hero-stats">
+
+        <div>
+            <strong>ATS</strong>
+            <small>Compatibility</small>
+        </div>
+
+        <div>
+            <strong>AI</strong>
+            <small>Skill Analysis</small>
+        </div>
+
+        <div>
+            <strong>Jobs</strong>
+            <small>Recommendations</small>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="glass-card">
+
+    <div class="card-title">
+        Resume Analyzer
+    </div>
+
+    {% if error %}
+
+    <div class="alert">
+        {{ error }}
+    </div>
+
+    {% endif %}
+
+
+    <form action="/analyze"
+          method="POST"
+          enctype="multipart/form-data">
+
+
+        <label class="upload-box">
+
+            <input type="file"
+                   name="resume"
+                   accept=".pdf"
+                   required>
+
+            <div class="upload-icon">
+                ↑
+            </div>
+
+            <strong>
+                Upload your resume
+            </strong>
+
+            <span>
+                PDF only • Maximum 5 MB
+            </span>
+
+        </label>
+
+
+        <label>
+            Target Job Description
+        </label>
+
+
+        <textarea
+            name="job_description"
+            rows="7"
+            placeholder="Paste the job description here..."
+            required>
+        </textarea>
+
+
+        <button
+            class="primary-btn"
+            type="submit">
+
+            Analyze Resume
+
+            <span>→</span>
+
+        </button>
+
+    </form>
+
+</div>
+
+</section>
+
+
+<section class="features">
+
+<div class="section-heading">
+
+    <span class="eyebrow">
+        SMART FEATURES
+    </span>
+
+    <h2>
+        Everything you need to
+        understand your resume.
+    </h2>
+
+</div>
+
+
+<div class="feature-grid">
+
+<article>
+
+    <div class="feature-icon">
+        ◎
+    </div>
+
+    <h3>
+        AI Resume Score
+    </h3>
+
+    <p>
+        Get a combined score from job
+        match, ATS structure and
+        resume completeness.
+    </p>
+
+</article>
+
+
+<article>
+
+    <div class="feature-icon">
+        ✓
+    </div>
+
+    <h3>
+        ATS Checker
+    </h3>
+
+    <p>
+        Check important resume sections
+        and contact information.
+    </p>
+
+</article>
+
+
+<article>
+
+    <div class="feature-icon">
+        ⌁
+    </div>
+
+    <h3>
+        Skill Gap Analysis
+    </h3>
+
+    <p>
+        See which skills are present,
+        required and missing.
+    </p>
+
+</article>
+
+
+<article>
+
+    <div class="feature-icon">
+        ★
+    </div>
+
+    <h3>
+        Job Recommendations
+    </h3>
+
+    <p>
+        Find relevant roles using
+        NLP-based similarity.
+    </p>
+
+</article>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+© 2026 ResumeSense •
+AI Resume Screening & Job Recommendation System
+
+</footer>
+
+
+<script src="{{ url_for('static',
+filename='script.js') }}">
+</script>
+
+</body>
+  </html>
